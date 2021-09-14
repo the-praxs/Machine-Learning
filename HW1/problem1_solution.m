@@ -1,3 +1,4 @@
+clc;
 clear variables;
 
 %% PART 1 - DETERMINING DEGREE OF POLYNOMIAL D
