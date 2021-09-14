@@ -27,16 +27,15 @@ close all;
 
 % Dividing data into training and testing sets
 [length, ~] = size(X);
-split = 0.50;       % Split ratio is 0.5 i.e. divide into 2 halves
-idx = randperm(length);     % Randomize order of splitting
+[train, test] = crossvalind('HoldOut', length, 0.5);
 
 % Training data
-X_train = X(idx(1:round(split*length)),:);
-y_train = y(idx(1:round(split*length)),:);
+X_train = X(train);
+y_train = y(train);
 
 % Testing data
-X_test = X(idx(round(split*length)+1:end),:);
-y_test = y(idx(round(split*length)+1:end),:);
+X_test = X(test);
+y_test = y(test);
 
 % Preallocating variables for speed
 model_training_errors = [];
