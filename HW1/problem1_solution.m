@@ -11,7 +11,7 @@ X = dataset.x;
 y = dataset.y;
 
 % Checking for the degree d from 1 to 7 to determine overfitting
-for D=1:7
+for D=1:10
     [err, model] = polyreg(X, y, D);       % Returns the error and model coefficients
     
     title(sprintf('Degree of polynomial (d) = %d', D));     % Saving plot title with string formatting
@@ -37,7 +37,7 @@ y_train = y(train);
 X_test = X(test);
 y_test = y(test);
 
-% Preallocating variables for speed
+% Preallocating variables for speed optimization
 model_training_errors = [];
 model_testing_errors = [];
 model_coefficients = {};
