@@ -1,0 +1,22 @@
+clear all;
+
+% Load the dataset, which contains a structure
+dataset = load('problem1.mat');
+
+% Assigning structure values to variables
+X = dataset.x;
+y = dataset.y;
+
+% Checking for the dimension d from 1 to 7 to determine overfitting
+for D=1:7
+    [err,model] = polyreg(X,y,D);       % Returns the error and model coefficients
+    title(sprintf('Dimension of polynomial (d) = %d', D));
+    
+end
+
+
+
+
+%%for d=1:7
+    
+%%end
