@@ -1,4 +1,4 @@
-function [err,model,errT] = ridgereg(x,y,D,xT,yT)
+function [err,model,errT] = ridgereg(x,y,lambda,xT,yT)
 %
 % Finds a D-1 order polynomial fit to the data
 %
