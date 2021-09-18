@@ -26,6 +26,6 @@ C = (lambda/(2*length(x))*(sum(model.^2)));
 err   = (1/(2*length(x)))*sum((y-x*model).^2)+C;
 
 if (nargin==5)
-  errT  = (1/(2*length(xT)))*sum((yT-xT*model).^2);
+  errT  = (1/(2*length(xT)))*sum((yT-xT*model).^2)+C;
 end
 
