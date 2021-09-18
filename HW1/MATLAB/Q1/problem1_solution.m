@@ -59,12 +59,17 @@ end
 clf;        % Clear figure
 hold on;        % Retain plot in current axes
 
+% Determine and display the values of minimum testing error with corresponding d
+[~, idx] = min(model_testing_errors);
+min_model_testing_error = model_testing_errors(idx);
+d_min = idx;
+fprintf('Minimum Testing Error = %f for degree of polynomial d = %d \n', min_model_testing_error, d_min);
+
 % Plot model training and testing errors
 plot(model_training_errors, 'b');
 plot(model_testing_errors, 'r');
 
-% Determine min testing error corresponding to D and mark with red X
-[~, idx] = min(model_testing_errors);
+% Mark the value of d corresponding to minimum testing error
 plot(idx, model_testing_errors(idx), 'rX');
 
 % Set plot labels and legend
