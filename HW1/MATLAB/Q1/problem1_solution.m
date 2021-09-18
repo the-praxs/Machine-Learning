@@ -56,6 +56,7 @@ for D=1:60
     save('problem1_part2_values.mat', 'err', 'errT', 'model');      % Save workspace variables
 end
 
+%% PART 3 - PLOT THE GRAPHS
 clf;        % Clear figure
 hold on;        % Retain plot in current axes
 
