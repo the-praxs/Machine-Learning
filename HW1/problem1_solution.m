@@ -3,7 +3,7 @@ clear variables;
 
 %% PART 1 - DETERMINING DEGREE OF POLYNOMIAL D
 
-path = "N:\\My Drive\\Repositories\\ece-gy-6143\\HW1\\Figures\\";       % Set path for saving figures
+path = "N:\\My Drive\\Repositories\\ece-gy-6143\\HW1\\Figures\\Q1\\";       % Set path for saving figures
 
 dataset = load('problem1.mat');     % Load the dataset which contains a structure
 
