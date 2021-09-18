@@ -28,15 +28,14 @@ close all;
 
 % Dividing data into training and testing sets
 [length, ~] = size(X);
-idx = crossvalind('KFold', length, 2);
+ = crossvalind('KFold', length, 2);
 
 % Training data
-train = (idx==1);
+train = 
 X_train = X(train);
 y_train = y(train);
 
 % Testing data
-test = (idx==2);
 X_test = X(test);
 y_test = y(test);
 
