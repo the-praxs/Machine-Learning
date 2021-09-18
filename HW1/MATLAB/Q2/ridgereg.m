@@ -20,12 +20,10 @@ function [err,model,errT] = ridgereg(x,y,lambda,xT,yT)
 % [err,model] = polyreg(x,y,4);
 %
 
-xTx = x'*x;
-model = pinv(xTx+lambda*eye(size(xTx)))*x'*y;
-C = (lambda/(2*length(x))*(sum(model.^2)));
-err   = (1/(2*length(x)))*sum((y-x*model).^2)+C;
+xTx = x'*x ;
+model = (x'*x + lambda*eye(size(xTx)))\x'*y ;
+err = (1/(2*length(x)))*sum((y-x*model).^2);
 
-if (nargin==5)
-  errT  = (1/(2*length(xT)))*sum((yT-xT*model).^2)+C;
+if ( nargin==5)
+    errT = (1/(2*length(x)))*sum((yT-xT*model).^2);
 end
-
