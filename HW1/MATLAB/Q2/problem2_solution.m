@@ -51,6 +51,7 @@ min_model_testing_error = model_testing_errors(idx);
 
 save('problem2_values.mat', 'err', 'errT', 'model');      % Save workspace variables
 
+%% PART 3 - PLOT THE GRAPH AND THE LAMBDA VALUE
 % Display the values of minimum testing error and d
 fprintf('Minimum Testing Error = %f for penalty paramter lambda = %d \n', min_model_testing_error, min_lambda);
 
