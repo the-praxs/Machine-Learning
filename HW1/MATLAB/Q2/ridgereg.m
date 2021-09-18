@@ -6,7 +6,7 @@ function [err,model,errT] = ridgereg(x,y,D,xT,yT)
 %
 % x = vector of input scalars for training
 % y = vector of output scalars for training
-% D = the order plus one of the polynomial being fit
+% lambda = penalty parameter for L2 Regularization
 % xT = vector of input scalars for testing
 % yT = vector of output scalars for testing
 % err = average squared loss on training
@@ -20,32 +20,12 @@ function [err,model,errT] = ridgereg(x,y,D,xT,yT)
 % [err,model] = polyreg(x,y,4);
 %
 
-xx = zeros(length(x),D);
-for i=1:D
-  xx(:,i) = x.^(D-i);
-end
-model = pinv(xx)*y;
-err   = (1/(2*length(x)))*sum((y-xx*model).^2);
+xTx = x'*x;
+model = pinv(xTx+lambda*eye(size(xTx)))*x'*y;
+C = (lambda/(2*length(x))*(sum(model.^2)));
+err   = (1/(2*length(x)))*sum((y-x*model).^2)+C;
 
 if (nargin==5)
-  xxT = zeros(length(xT),D);
-  for i=1:D
-    xxT(:,i) = xT.^(D-i);
-  end
-  errT  = (1/(2*length(xT)))*sum((yT-xxT*model).^2);
+  errT  = (1/(2*length(xT)))*sum((yT-xT*model).^2);
 end
-
-q  = (min(x):(max(x)/300):max(x))';
-qq = zeros(length(q),D);
-for i=1:D
-  qq(:,i) = q.^(D-i);
-end
-
-clf
-plot(x,y,'X');
-hold on
-if (nargin==5)
-    plot(xT,yT,'cO');
-end
-plot(q,qq*model,'r')
 
