@@ -62,8 +62,7 @@ hold on;        % Retain plot in current axes
 % Determine and display the values of minimum testing error with corresponding d
 [~, idx] = min(model_testing_errors);
 min_model_testing_error = model_testing_errors(idx);
-d_min = idx;
-fprintf('Minimum Testing Error = %f for degree of polynomial d = %d \n', min_model_testing_error, d_min);
+fprintf('Minimum Testing Error = %f for degree of polynomial d = %d \n', min_model_testing_error, idx);
 
 % Plot model training and testing errors
 plot(model_training_errors, 'b');
