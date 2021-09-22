@@ -12,7 +12,7 @@ X = dataset.X;
 y = dataset.Y;
 
 % Initializing parameters for Gradient Descent
-stepSize = 2;
+stepSize = 5;
 tolerance = 0.001;
 theta = rand(size(X,2), 1);
 nIter = 100000;
