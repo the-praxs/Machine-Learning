@@ -56,7 +56,7 @@ title('Error and Risk vs Iterations');
 legend('Error', 'Risk');
 disp('\nTheta:');
 disp(theta);
-filename = path + 'Error and Risk vs Iterations.jpeg';      % Figure file saved in Figures subfolder
+filename = sprintf(path + 'Error and Risk vs Iterations n_%d and e_%d.jpeg', stepSize, tolerance);      % Figure file saved in Figures subfolder
 print(filename, '-djpeg');      % Saving the figures as .jpeg format for high-quality, low space requirements
 
 x=0:0.01:1;
@@ -65,5 +65,5 @@ figure(2), plot(x, y, 'g');
 hold on;
 plot(X(:,1), X(:,2), 'r.');
 title('Linear Decision Boundary');
-filename = path + 'Linear Decision Boundary.jpeg';      % Figure file saved in Figures subfolder
+filename = sprintf(path + 'Linear Decision Boundary n_%d and e_%d.jpeg', stepSize, tolerance);      % Figure file saved in Figures subfolder
 print(filename, '-djpeg');      % Saving the figures as .jpeg format for high-quality, low space requirements
