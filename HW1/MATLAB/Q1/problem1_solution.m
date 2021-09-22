@@ -71,6 +71,7 @@ plot(model_testing_errors, 'r');
 
 % Mark the value of d corresponding to minimum testing error
 plot(idx, model_testing_errors(idx), 'rX');
+text(idx, min_model_testing_error, sprintf('d=%d', idx));
 
 % Set plot labels and legend
 xlabel('Degree of Polynomial (d) + 1');
