@@ -78,5 +78,5 @@ ylabel('Error');
 legend('Training', 'Testing');
 
 title('Cross Validation Training and Testing Error');     % Saving plot title
-filename = sprintf(path + 'fig_cross_validation_error.jpeg', D);      % Figure file saved in Figures subfolder
+filename = path + 'fig_cross_validation_error.jpeg';      % Figure file saved in Figures subfolder
 print(filename, '-djpeg');      % Saving the figures as .jpeg format for high-quality, low space requirements
