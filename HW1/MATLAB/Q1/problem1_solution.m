@@ -7,7 +7,7 @@ path = "N:\\My Drive\\Repositories\\ece-gy-6143\\HW1\\MATLAB\\Q1\\Figures\\";   
 
 dataset = load('problem1.mat');     % Load the dataset
 
-% Assigning structure values to variables
+% Assigning values to variables
 X = dataset.x;
 y = dataset.y;
 
