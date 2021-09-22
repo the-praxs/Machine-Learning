@@ -5,7 +5,7 @@ clear variables;
 
 path = "N:\\My Drive\\Repositories\\ece-gy-6143\\HW1\\MATLAB\\Q1\\Figures\\";       % Set path for saving figures
 
-dataset = load('problem1.mat');     % Load the dataset which contains a structure
+dataset = load('problem1.mat');     % Load the dataset
 
 % Assigning structure values to variables
 X = dataset.x;
