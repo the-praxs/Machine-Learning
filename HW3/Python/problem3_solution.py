@@ -15,8 +15,8 @@ score = []
 C = [x*0.1 for x in range(1,101)]
 print('LINEAR KERNEL ----> Best Estimator:')
 
-for i in range(len(C)):
-    clf = SVC(C=C[i], kernel='linear')
+for item in C:
+    clf = SVC(C=item, kernel='linear')
     clf.fit(X_train, y_train.ravel())
     y_predict = clf.predict(X_test)
     score.append(accuracy_score(y_test, y_predict))
@@ -33,7 +33,7 @@ ax.set_ylabel('Accuracy')
 
 score = []
 C = [0.0001, 0.0009, 0.001, 0.01, 0.21, 0.301, 0.49, 1]
-degree = [x for x in range(1,9)]
+degree = list(range(1,9))
 print()
 print('POLY KERNEL ----> Best Estimator:')
 
@@ -44,7 +44,10 @@ for i in range(len(C)):
     score.append(accuracy_score(y_test, y_predict))
 
 idx = score.index(max(score))
-print('C={}, Degree of Polynomial={}, Gamma=0.9, Accuracy={}'.format(C[idx], degree[idx], score[idx]*100))
+print(
+    f'C={C[idx]}, Degree of Polynomial={degree[idx]}, Gamma=0.9, Accuracy={score[idx] * 100}'
+)
+
 
 fig = plt.figure()
 ax = plt.axes(projection='3d')
@@ -78,9 +81,9 @@ for i in range(len(C)):
     score.append(accuracy_score(y_test, y_predict))
 
 idx = score.index(max(score))
-print('C={}, Gamma={}, Accuracy={}'.format(C[idx], gamma[idx], score[idx]*100))
-    
-fig = plt.figure()    
+print(f'C={C[idx]}, Gamma={gamma[idx]}, Accuracy={score[idx] * 100}')
+
+fig = plt.figure()
 ax = plt.axes(projection='3d')
 ax.plot_trisurf(C, gamma, score, cmap='viridis')
 ax.set_xlabel('C')
